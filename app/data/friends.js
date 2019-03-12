@@ -1,3 +1,4 @@
+//our JSON object for providing the best match
 var friendsData = [
     {
         name: "Mahershala Ali",
@@ -21,5 +22,4 @@ var friendsData = [
     },
   
 ]
-//3,5,5,4,3,3,2,3,5,4
 module.exports = friendsData;

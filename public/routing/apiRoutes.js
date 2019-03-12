@@ -14,15 +14,14 @@ module.exports = function(app){
             for (var j = 0; j < friendData[i].scores.length; j++){
                 nextBest += Math.abs(parseInt(req.body.scores[j]) - parseInt(friendData[i].scores[j])); 
             }
-            console.log(nextBest);
             if (nextBest < currentBest )
             {   
                 currentBest = nextBest;
                 currentFriend = friendData[i];
-                console.log(currentFriend);
             }
             nextBest = 0;
         }
         res.json(currentFriend);
+        friendData.push(req.body);
     })
 };   
