@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 var formData = {};
-
+//collecting the survey data
 function getFormData(){
         formData.name = $("#name").val().trim();
         formData.photo = $("#photo").val().trim();
@@ -17,6 +17,7 @@ function getFormData(){
         formData.scores.push($("#question-8").val())
         formData.scores.push($("#question-9").val())
         formData.scores.push($("#question-10").val())
+    //send out post req and data    
     $.post("/api/friends", formData, function(data){
         $("#match-name").append("<p>" + data.name + "</p>");
         $("#match-image").attr("src", data.photo);
@@ -25,6 +26,7 @@ function getFormData(){
 
     })
 }
+//checking to see if anything was left empty
 function validateForm(){
     var formValidated = true;
     $(".required").each(function(){
@@ -36,6 +38,7 @@ function validateForm(){
     return formValidated;
     
 }
+//When submit button is hit run functions
 $(document).on("click","#submit", function(event){
     event.preventDefault();
     if(validateForm())

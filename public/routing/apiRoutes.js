@@ -1,10 +1,11 @@
 
 module.exports = function(app){
     var friendData = require("../../app/data/friends");
-
+    //route for looking at JSON data
     app.get("/api/friends", function(req, res){
         res.json(friendData);
     })
+    //recieve post req from client and send back their best match
     app.post("/api/friends", function(req, res){
         var currentFriend = friendData[0];
         var currentBest = 100;
